@@ -4,7 +4,7 @@ import random
 palabras = ["actor", "busca", "curar", "dagas", "error", "finca", "ganas", "hacer", "islas", "jefas", "moler", "nadar", "obras", "pedir", "quedo", "redes", "sonar" , "tabla" , "verde",  "yogur" , "zorro"]
 pool2 = ["perro", "gatos", "medio", "melon", "meter", "metro", "casas", "flora", "cisne", "citas", "clara", "abeto", "aguas", "agudo", "luces", "mujer", "coche", "silla", "mesas", "jugar", "cielo", "piano", "sabor", "salud", "pasar", "nieve", "marea", "sueño", "calor", "lento", "canto", "roble", "nacer", "pisar", "tigre", "salir", "rueda", "banco", "bicho", "lagos"]
 pool3 = [
-     "alado", "albas", "altar", "atizo", "avala",
+    "alado", "albas", "altar", "atizo", "avala", "lente", "mujer", "nacer", 
     "abaco", "abate", "abeja", "aboya", "abran", "abras", "acoja", "acojo",
     "acres", "actas", "actos", "actuo", "acuna", "acune", "acuso", "acusó",
     "afeas", "aguda", "alaju", "alces", "aldea", "aleja", "algas", "alias",
@@ -16,11 +16,11 @@ pool3 = [
     "cajas", "calar", "calas", "calca", "calco", "calla", "calma", "camba",
     "canto", "capto", "caras", "carga", "cargo", "carlo", "carro", "casas",
     "catar", "caida", "cejas", "celia", "cenas", "cepas", "cerca", "cerco",
-    "cerdo", "cerda", "chile", "ciego", "ciega", 
-    "claro", "clave", "clavo", "colas", "colon", "colon", "coral", "coras",
-    "corea", "corro", "costo", "coste", "crudo", "curdo", "curda", "curar",
-    "celta", "combo", "corse", "crema", "cuida", "culos", "cural", "dados",
-    "dagas", "danos", "danza", "dejar", "dejes", "denso", "densa", "dices",
+    "cerdo", "cerda", "chile", "ciego", "ciega", "claro", "clave", "clavo", 
+    "colas", "colon", "colon", "coral", "coras", "corea", "corro", "costo", 
+    "coste", "crudo", "curdo", "curda", "curar", "celta", "combo", "corse", 
+    "crema", "cuida", "culos", "cural", "dados", "dagas", "danos", "danza", 
+    "dejar", "dejes", "denso", "densa", "dices", "kiwis", "xenon", "valer",
     "divos", "dotes", "dunas", "dures", "duros", "dubai", "enojo", "echas",
     "edito", "edita", "elevo", "emule", "enoje", "error", "errar", "elena",
     "emoji", "envio", "erizo", "espia", "euros", "fallo", "falto", "feria",
@@ -36,14 +36,14 @@ pool3 = [
     "lados", "lagos", "lance", "larga", "largo", "lejos", "lenta", "lento",
     "libia", "libro", "libra", "linda", "lindo", "logro", "loteo", "luche",
     "mania", "malos", "malas", "marca", "marco", "marti", "marte", "marta",
-    "marta", "maria", "mario",  "molar",
-    "moler", "monte", "manco", "manca", "macao", "malta", "mango", "manga",
-    "meaba", "media", "midas", "midas", "minsk", "mirar", "miron", "mojar",
-    "multa", "mundo", "nacer", "nadar", "narro", "natas", "naves", "necio",
-    "necia", "ninos", "notas", "nubes", "nuria", "nabos", "nazis", "nepal",
-    "niger", "noñez", "nizca", "nuzco", "noqui", "nurdo", "nurda", "opera",
-    "obras", "ocios", "ollas", "ondas", "onzas", "ovulo", "oreja", "odiár",
-    "orina", "ortos", "osito", "palas", "pedir", "pelea", "pelar", "peras",
+    "marta", "maria", "mario", "molar", "moler", "monte", "manco", "manca", 
+    "macao", "malta", "mango", "manga", "meaba", "media", "midas", "midas",
+    "minsk", "mirar", "miron", "mojar", "multa", "mundo", "nacer", "nadar", 
+    "narro", "natas", "naves", "necio", "necia", "ninos", "notas", "nubes", 
+    "nuria", "nabos", "nazis", "nepal", "niger", "noñez", "nizca", "nuzco", 
+    "noqui", "nurdo", "nurda", "opera", "obras", "ocios", "ollas", "ondas", 
+    "onzas", "ovulo", "oreja", "odiár", "orina", "ortos", "osito", "palas", 
+    "pedir", "pelea", "pelar", "peras", "azote", "manco", "yacer", "zapas",
     "perro", "perra", "pilas", "pinto", "poder", "pacto", "pagar", "palma",
     "papua", "parda", "pardo", "paseo", "pecio", "penes", "peres", "pesca",
     "pifia", "pisco", "playa", "pleno", "punto", "purga", "queda", "quedo",
@@ -55,41 +55,28 @@ pool3 = [
     "sobar", "sonar", "subir", "sucio", "sucia", "sacra", "sajon", "salve",
     "salva", "salto", "salud", "samoa", "santo", "santa", "sedar", "sexos",
     "segar", "siega", "siria", "sobar", "sobre", "solar", "sonda", "soplo",
-    "sonar", "sudan", "suenio", "suiza", "sushi", "super", "tabla", "tacos",
-    "tania", "tapas", "tapara", "tazas", "telon", "tener", "tejer", "tenis",
+    "sonar", "sudan", "sueno", "suiza", "sushi", "super", "tabla", "tacos",
+    "tania", "tapas", "tapar", "tazas", "telon", "tener", "tejer", "tenis",
     "terco", "terca", "terso", "tersa", "tipos", "tirar", "todas", "todos",
     "tomar", "tonos", "tonto", "tonta", "toque", "torpe", "trote", "talar",
     "telar", "tarde", "temer", "tenia", "topar", "tocar", "toser", "toner",
     "traer", "tumba", "tunez", "unoso", "unosa", "untes", "urbes", "urnas",
     "valer", "vacas", "vagos", "vagas", "valor", "veces", "vedas", "velas",
     "velar", "vemos", "verse", "verso", "venir", "verde", "vigor", "vivir",
-    "volar", "votar", "vasco", "vasca", "vasto", "vasta", "viajes", "video",
+    "volar", "votar", "vasco", "vasca", "vasto", "vasta", "viaje", "video",
     "weber", "wikis", "wones", "xolas", "yemen", "yates", "yemas", "yendo",
-    "yenes",
-    "abaco", "eflux", "yabal", "kefir", "laxar", 
-    "aboya", "amina", "hotel", "juego", "kilos", 
-    "lucir", "mango", "nieve", "oliva", "piano", 
-    "quema", "rango", "sello", "tigre", "dedos", 
-    "juego", "zorro", "viejo", "broma", "coche", 
-    "dolar", "elijo", "fuego", "gente", "huevo", 
-    "islas", "jugar", "karma", "lente", "mujer", 
-    "nacer", "orcas", "pinta", "quien", "risas", 
-    "sabor", "tigre", "zurdo", "valer", "kiwis", 
-    "xenon", "yacer", "zapas", "azote", "manco"
+    "yenes", "sabor", "tigre", "zurdo", "orcas", "pinta", "quien", "risas",
+    "abaco", "eflux", "yabal", "kefir", "laxar", "islas", "jugar", "karma", 
+    "aboya", "amina", "hotel", "juego", "kilos", "fuego", "gente", "huevo", 
+    "lucir", "mango", "nieve", "oliva", "piano", "coche", "dolar", "elijo",
+    "quema", "rango", "sello", "tigre", "dedos", "zorro", "viejo", "broma"
 ]
 
-#secrets = random.choice(palabras)
-
-global tries
-tries = 6
-secrets = None
 
 def dificultad():
     global secrets
     print("soft, normal, hard") 
     user_dif = input("Elige la dificultad de juego: ").lower()
-    
-
     
     if user_dif == 'soft':
          secrets = random.choice(palabras)
@@ -104,6 +91,65 @@ def dificultad():
          print("\nPor favor elige una dificultad.")
          dificultad()
         
+
+    def verificar_palabra(word, secrets):
+        word = word.lower()
+        secrets = secrets.lower()
+    
+        if word == secrets:
+            return True
+        else:
+            
+            list_letra = []
+            list_emoji = []
+            for x, y in zip(secrets, word):
+                if y in secrets and y in x:
+                    nice = "  " + y + " "
+                    niceE = " 👌"
+                    list_letra.append(nice)
+                    list_emoji.append(niceE)
+
+                elif y in secrets:
+                    meh = " " + y + " "
+                    mehE = " 🙄"
+                    list_letra.append(meh)
+                    list_emoji.append(mehE)
+                else:
+                    bad = " " + y + " "
+                    badE = " 👎"
+                    list_letra.append(bad)
+                    list_emoji.append(badE)
+
+            resultado1 = ' '.join(list_letra)
+            resultado2 = ' '.join(list_emoji)
+
+            print(f"\n{resultado1}")
+            print(resultado2)
+            return False
+    
+    def jugar_wordle():
+    
+        intentos = 0
+        max_intentos = tries
+        while intentos < max_intentos:
+            word = input("\nIngresa una palabra de 5 letras, no hay acentos 😉: ")
+    
+            if len(word) != 5 or not word.isalpha():
+                print("😬 La palabra debe tener 5 letras y no contener números ni carácteres especiales. Inténtalo de nuevo. 😬\n")
+                continue
+                
+    
+            if verificar_palabra(word, secrets):
+                print("\n🤩 ¡Felicidades! Has adivinado la palabra. 🤩")
+                break
+    
+            intentos += 1
+            print(f"\nIntento {intentos}/{max_intentos}\n")
+    
+        if intentos == max_intentos:
+            print(f"😞 Lo siento, has alcanzado el máximo de intentos. La palabra secreta era '{secrets}'. 🫣")
+    jugar_wordle()
+
 
 def verificar_palabra(word, secrets):
     word = word.lower()
@@ -153,6 +199,7 @@ def jugar_wordle():
             print("😬 La palabra debe tener 5 letras y no contener números ni carácteres especiales. Inténtalo de nuevo. 😬\n")
             continue
             
+
 
         if verificar_palabra(word, secrets):
             print("\n🤩 ¡Felicidades! Has adivinado la palabra. 🤩")
