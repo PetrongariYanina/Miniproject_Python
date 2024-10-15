@@ -80,12 +80,15 @@ pool3 = [
 
 #secrets = random.choice(palabras)
 
-def dificultad():
+global tries
+tries = 6
+secrets = None
 
+def dificultad():
+    global secrets
     print("soft, normal, hard") 
     user_dif = input("Elige la dificultad de juego: ").lower()
-    global tries
-    tries = 6
+    
 
     
     if user_dif == 'soft':
@@ -101,64 +104,66 @@ def dificultad():
          print("\nPor favor elige una dificultad.")
          dificultad()
         
- 
-    def verificar_palabra(word, secrets):
-        word = word.lower()
-        secrets = secrets.lower()
+
+def verificar_palabra(word, secrets):
+    word = word.lower()
+    secrets = secrets.lower()
     
-        if word == secrets:
-            return True
-        else:
-            #letras_correctas = sum(1 for x, y in zip(word, secrets) if x == y)
+
+    if word == secrets:
+        return True
+    else:
+        #letras_correctas = sum(1 for x, y in zip(word, secrets) if x == y)
+        
+        list_letra = []
+        list_emoji = []
+        for x, y in zip(secrets, word):
+            if y in secrets and y in x:
+                nice = "  " + y + " "
+                niceE = " 👌"
+                list_letra.append(nice)
+                list_emoji.append(niceE)
+
+            elif y in secrets:
+                meh = " " + y + " "
+                mehE = " 🙄"
+                list_letra.append(meh)
+                list_emoji.append(mehE)
+            else:
+                bad = " " + y + " "
+                badE = " 👎"
+                list_letra.append(bad)
+                list_emoji.append(badE)
+
+        resultado1 = ' '.join(list_letra)
+        resultado2 = ' '.join(list_emoji)
+
+        print(f"\n{resultado1}")
+        print(resultado2)
+        return False
+
+def jugar_wordle():
+
+    intentos = 0
+    max_intentos = tries
+    while intentos < max_intentos:
+        word = input("\nIngresa una palabra de 5 letras, no hay acentos 😉: ")
+
+        if len(word) != 5 or not word.isalpha():
+            print("😬 La palabra debe tener 5 letras y no contener números ni carácteres especiales. Inténtalo de nuevo. 😬\n")
+            continue
             
-            list_letra = []
-            list_emoji = []
-            for x, y in zip(secrets, word):
-                        if y in secrets and y in x:
-                            nice = "  " + y + " "
-                            niceE = " 👌"
-                            list_letra.append(nice)
-                            list_emoji.append(niceE)
 
-                        elif y in secrets:
-                            meh = " " + y + " "
-                            mehE = " 🙄"
-                            list_letra.append(meh)
-                            list_emoji.append(mehE)
-                        else:
-                            bad = " " + y + " "
-                            badE = " 👎"
-                            list_letra.append(bad)
-                            list_emoji.append(badE)
+        if verificar_palabra(word, secrets):
+            print("\n🤩 ¡Felicidades! Has adivinado la palabra. 🤩")
+            break
 
-            resultado1 = ' '.join(list_letra)
-            resultado2 = ' '.join(list_emoji)
+        intentos += 1
+        print(f"\nIntento {intentos}/{max_intentos}\n")
 
-            print(f"\n{resultado1}")
-            print(resultado2)
-            return False
-    
-    def jugar_wordle():
-    
-        intentos = 0
-        max_intentos = tries
-        while intentos < max_intentos:
-            word = input("\nIngresa una palabra de 5 letras, no hay acentos 😉: ")
-    
-            if len(word) != 5 or not word.isalpha():
-                print("😬 La palabra debe tener 5 letras y no contener números ni carácteres especiales. Inténtalo de nuevo. 😬\n")
-                continue
-                
-    
-            if verificar_palabra(word, secrets):
-                print("\n🤩 ¡Felicidades! Has adivinado la palabra. 🤩")
-                break
-    
-            intentos += 1
-            print(f"\nIntento {intentos}/{max_intentos}\n")
-    
-        if intentos == max_intentos:
-            print(f"😞 Lo siento, has alcanzado el máximo de intentos. La palabra secreta era '{secrets}'. 🫣")
-    jugar_wordle()
-
+    if intentos == max_intentos:
+        print(f"😞 Lo siento, has alcanzado el máximo de intentos. La palabra secreta era '{secrets}'. 🫣")
+        
 dificultad()
+
+jugar_wordle()
