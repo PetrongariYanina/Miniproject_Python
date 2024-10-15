@@ -28,7 +28,7 @@ def verificar_palabra(word, secrets):
                         list_emoji.append(mehE)
                     else:
                         bad = " " + y + " "
-                        badE = " 👎"
+                        badE = " 👎""medio", "melon", "meter", "metro",
                         list_letra.append(bad)
                         list_emoji.append(badE)
 
