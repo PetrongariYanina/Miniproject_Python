@@ -7,6 +7,7 @@ def game1():
     victorias = 0
     derrotas = 0
     empates = 0
+    
     print("***********************************************")
     print("* Bienvenido jugador, ¡preparate! ＼(＾▽＾)／ *")
     print("***********************************************")
